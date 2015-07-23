@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pazdarke.courtpocket1.activity.ApplyteamActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/blue" >
+
+        <ImageView
+            android:id="@+id/iv_applyteam_leftarrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/selector_drawable_leftarrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="申请加入球队"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+        
+        <TextView
+            android:id="@+id/tv_applyteam_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="提交"
+            android:textColor="@drawable/selector_color_white_grey"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+    <EditText 
+        android:id="@+id/et_applyteam_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:maxLength="200"
+        android:hint="请输入验证消息"
+        android:textSize="18sp" />
+
+</LinearLayout>

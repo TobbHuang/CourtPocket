@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pazdarke.courtpocket1"
+    android:versionCode="3"
+    android:versionName="0.0.3 alpha" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="22" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1104718886" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="35f48ba5bd5498899f559aa52673a880" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55745ba267e58e15a8002048" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="OfficialWebsite" />
+
+        <!-- Ping++ SDK 注册 -->
+        <activity
+            android:name="com.pingplusplus.android.PaymentActivity"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微信支付注册 -->
+        <activity-alias
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:targetActivity="com.pingplusplus.android.PaymentActivity" />
+        <!-- 支付宝注册 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 【必须】 信鸽receiver广播接收 -->
+        <receiver
+            android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:process=":xg_service_v2" >
+            <intent-filter android:priority="0x7fffffff" >
+
+                <!-- 【必须】 信鸽SDK的内部广播 -->
+                <action android:name="com.tencent.android.tpush.action.SDK" />
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+                <!-- 【必须】 系统广播：开屏和网络切换 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
+        <!-- 【注意】 如果被打开的activity是启动模式为SingleTop，SingleTask或SingleInstance，请根据通知的异常自查列表第8点处理 -->
+        <activity
+            android:name="com.tencent.android.tpush.XGPushActivity"
+            android:exported="true" >
+        </activity>
+
+        <!-- 【必须】 信鸽service -->
+        <service
+            android:name="com.tencent.android.tpush.service.XGPushService"
+            android:exported="true"
+            android:persistent="true"
+            android:process=":xg_service_v2" />
+
+        <!-- 【必须】 通知service，此选项有助于提高抵达率 -->
+        <service
+            android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.pazdarke.courtpocket1.PUSH_ACTION" />
+            </intent-filter>
+        </service>
+
+        <!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+        <meta-data
+            android:name="XG_V2_ACCESS_ID"
+            android:value="2100124166" />
+        <!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
+        <meta-data
+            android:name="XG_V2_ACCESS_KEY"
+            android:value="A921WTNP2S5Y" />
+        <!-- YOUR_PACKAGE_PATH.CustomPushReceiver需要改为自己的Receiver： -->
+        <receiver android:name=".receiver.PushReceiver" >
+            <intent-filter>
+
+                <!-- 接收消息透传 -->
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+                <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.NewsActivity"
+            android:label="@string/title_activity_news"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CourtlistActivity"
+            android:label="@string/title_activity_courtlist"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CourtinfoActivity"
+            android:label="@string/title_activity_courtinfo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MatchActivity"
+            android:label="@string/title_activity_match"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BookActivity"
+            android:label="@string/title_activity_book"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.NearbyMapActivity"
+            android:label="@string/title_activity_nearby_map"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.PhotoActivity"
+            android:label="@string/title_activity_photo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ResetpwActivity"
+            android:label="@string/title_activity_resetpw"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CourtCommentActivity"
+            android:label="@string/title_activity_court_comment"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SearchresultActivity"
+            android:label="@string/title_activity_searchresult"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MyinfoActivity"
+            android:label="@string/title_activity_myinfo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SimpleRouteNaviActivity"
+            android:label="@string/title_activity_simple_route_navi"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SimpleNaviActivity"
+            android:label="@string/title_activity_simple_navi"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CourtCoachActivity"
+            android:label="@string/title_activity_court_coach"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BookConfirmActivity"
+            android:label="@string/title_activity_book_confirm"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MatchConfirmActivity"
+            android:label="@string/title_activity_book_confirm"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MycollectActivity"
+            android:label="@string/title_activity_mycollect"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MybillActivity"
+            android:label="@string/title_activity_mybill"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BusrouteActivity"
+            android:label="@string/title_activity_busroute"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MybillInfoActivity"
+            android:label="@string/title_activity_mybill_info"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CommitGymcommentActivity"
+            android:label="@string/title_activity_gym_comment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".choosepics.ImgFileListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".choosepics.ImgsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MatchlistActivity"
+            android:label="@string/title_activity_matchlist"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MatchbillInfoActivity"
+            android:label="@string/title_activity_matchbill_info"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CommitMatchcommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".activity.CreateTeamActivity"
+            android:label="@string/title_activity_create_team"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.TeamInfoActivity"
+            android:label="@string/title_activity_team_info"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.DiscoverteamActivity"
+            android:label="@string/title_activity_discoverteam"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ApplyteamActivity"
+            android:label="@string/title_activity_applyteam"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MymessageActivity"
+            android:label="@string/title_activity_mymessage"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.TeammessageActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ManageteamActivity"
+            android:label="@string/title_activity_manageteam"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.UserinfoActivity"
+            android:label="@string/title_activity_userinfo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.TeammemberlistActivity"
+            android:label="@string/title_activity_teammemberlist"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.InviteActivity"
+            android:label="@string/title_activity_invite"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.InvitelistActivity"
+            android:label="@string/title_activity_invitelist"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightlistActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightSelectteamActivity"
+            android:label="@string/title_activity_fight_selectteam"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightbookActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightbookConfirmActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightbillActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.AcceptfightConfirmActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FightrecordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CommitFightcommentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.TeamintroActivity"
+            android:label="@string/title_activity_teamintro"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.TransforLeaderActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ManageTeammemberActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CardActivity"
+            android:label="@string/title_activity_card"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BuycardActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MycardActivity"
+            android:label="@string/title_activity_mycard"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.MycardInfoActivity"
+            android:label="@string/title_activity_mycardinfo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterLawActivity"
+            android:label="@string/title_activity_register_law"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BindActivity"
+            android:label="@string/title_activity_bind"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/title_activity_wxentry"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.pazdarke.courtpocket1.activity.GuideActivity"
+            android:label="@string/title_activity_guide"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- 【可选】 信鸽SDK所需权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+
+</manifest>

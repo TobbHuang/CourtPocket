@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pazdarke.courtpocket1.activity.TeammemberlistActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/blue" >
+
+        <ImageView
+            android:id="@+id/iv_teammemberlist_leftarrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/selector_drawable_leftarrow" />
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true" >
+            
+            <TextView
+                android:id="@+id/tv_teammemberlist_teamname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电子科大足球队"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="球队成员"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.pazdarke.courtpocket1.view.PullDownListView
+            android:id="@+id/lv_teammemberlist_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lightGrey" >
+        </com.pazdarke.courtpocket1.view.PullDownListView>
+
+        <RelativeLayout
+            android:id="@+id/rl_teammemberlist_gifcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="transparent_background">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#CCCCCC</color>
+    <color name="lightGrey">#F2F2F2</color>
+    <color name="darkGrey">#797979</color>
+    <color name="darkdarkGrey">#666666</color>
+    <color name="pressed">#e0ffff</color>
+    <color name="orange">#ff6600</color>
+    <color name="red">#ff0033</color>
+    <color name="pink">#FFEEFF</color>
+    <color name="blue">#0099cc</color>
+    <color name="lightRed">#ffdacc</color>
+    <color name="theme">#0099cc</color>
+    <color name="green">#1BB78F</color>
+    <color name="yellow">#F5AD35</color>
+    <color name="lightBlue">#67d0f3</color>
+    <color name="shadow_start">#80000000</color>
+    <color name="shadow_end">#00000000</color>
+    <color name="guidebtn_pressed">#66FFFFFF</color>
+    
+</resources>

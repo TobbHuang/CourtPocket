@@ -1,0 +1,201 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pazdarke.courtpocket1.activity.CourtlistActivity" >
+
+    <RelativeLayout
+        android:id="@+id/rl_courtlist_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/blue" >
+
+        <ImageView
+            android:id="@+id/iv_courtlist_leftarrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/selector_drawable_leftarrow" />
+        
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_map"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_drawable_blue_lightblue" >
+
+            <ImageView
+                android:id="@+id/iv_courtlist_map"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_location" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_searchbar"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/rl_courtlist_map"
+            android:layout_toRightOf="@id/iv_courtlist_leftarrow"
+            android:background="@drawable/shape_mainpage_tab1_searchbar" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_mainpage_tab1_search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="输入场馆名字"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_courtlist_locationcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/darkGrey" >
+
+        <TextView
+            android:id="@+id/tv_courtlist_locationtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:singleLine="true"
+            android:text="正在定位..."
+            android:textColor="@color/white" />
+
+        <com.pazdarke.courtpocket1.view.AlwaysMarqueeTextView
+            android:id="@+id/tv_courtlist_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_toRightOf="@id/tv_courtlist_locationtitle"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_courtlist_refresh"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_locationrefresh" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_courtlist_spinnercontainer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_sportsspinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lightGrey" >
+
+            <Spinner
+                android:id="@+id/sp_courtlist_sports"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_drawable_courtlistspinner" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/darkGrey" />
+
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_locationspinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lightGrey" >
+
+            <Spinner
+                android:id="@+id/sp_courtlist_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_drawable_courtlistspinner" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/darkGrey" />
+
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_orderspinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lightGrey" >
+
+            <Spinner
+                android:id="@+id/sp_courtlist_order"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_drawable_courtlistspinner" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey" />
+
+    <RelativeLayout
+        android:id="@+id/rl_courtlist_listcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/lv_courtlist_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lightGrey" />
+
+        <RelativeLayout
+            android:id="@+id/rl_courtlist_gifcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

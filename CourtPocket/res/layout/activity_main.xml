@@ -1,0 +1,1164 @@
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pazdarke.courtpocket1.activity.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="14" >
+
+            <LinearLayout
+                android:id="@+id/ll_mainpage_view1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/blue" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_mainpage_tab1_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="成都市 "
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:src="@drawable/ic_bottomarrow" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_mainpage_tab1_map"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/selector_drawable_blue_lightblue" >
+
+                        <ImageView
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_location" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_mainpage_tab1_searchbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="35dp"
+                        android:layout_toLeftOf="@id/rl_mainpage_tab1_map"
+                        android:layout_toRightOf="@id/ll_mainpage_tab1_city"
+                        android:background="@drawable/shape_mainpage_tab1_searchbar" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/ic_mainpage_tab1_search" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="输入场馆名字"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:id="@+id/rl_mainpage_ad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:id="@+id/view_pager_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/viewGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_below="@id/view_pager_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="-15dp"
+                                android:gravity="right"
+                                android:orientation="horizontal" >
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:id="@+id/ll_mainpage_tab1_firstrow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" >
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_soccer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="2.66dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_soccer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_soccer" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_tennis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5.33dp"
+                                    android:layout_marginRight="5.33dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_tennis"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_tennis" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_swimming"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2.66dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_swimming"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_swimming" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_mainpage_tab1_secondrow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:orientation="horizontal" >
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_badminton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="2.66dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_badminton"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_badminton" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_volleyball"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5.33dp"
+                                    android:layout_marginRight="5.33dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_volleyball"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_volleyball" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_tabletennis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2.66dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_tabletennis"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_tabletennis" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_mainpage_tab1_thridrow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:orientation="horizontal" >
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_billiards"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="2.66dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_billiards"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_billiards" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_basketball"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5.33dp"
+                                    android:layout_marginRight="5.33dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_basketball"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_basketball" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_bodybuilding"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2.66dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_bodybuilding"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_bodybuilding" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_mainpage_tab1_fourthrow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:orientation="horizontal" >
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_xgames"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="2.66dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_xgames"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_xgames" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_golf"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5.33dp"
+                                    android:layout_marginRight="5.33dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_golf"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_golf" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_mainpage_tab1_moresports"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2.66dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_weight="1" >
+
+                                    <ImageView
+                                        android:id="@+id/iv_mainpage_tab1_moresports"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/ic_moresports" />
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mainpage_viewteam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_mainpage_tabteam_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/blue" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="我的球队"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_mainpage_tabteam_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="更多"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:src="@drawable/ic_bottomarrow_white" />
+                    </LinearLayout>
+                    
+                    <TextView
+                        android:id="@+id/tv_mainpage_tabteam_fight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_centerVertical="true"
+                        android:text="约战平台"
+                        android:textColor="@drawable/selector_color_white_grey"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_mainpage_tabteam_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_mainpage_tabteam_title"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="60dp"
+                        android:src="@drawable/ic_mainpage_teamtab_emotion" />
+
+                    <Button
+                        android:id="@+id/btn_mainpage_tabteam_createteam"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/selector_drawable_blue_lightblue"
+                        android:text="创建"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/btn_mainpage_tabteam_jointeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/selector_drawable_blue_lightblue"
+                        android:text="加入"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_mainpage_tabteam_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/rl_mainpage_tabteam_title"
+                    android:background="@color/lightGrey"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <com.handmark.pulltorefresh.library.PullToRefreshListView
+                        android:id="@+id/lv_mainpage_tabteam_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightGrey" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mainpage_tabteam_gifcontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/rl_mainpage_tabteam_title"
+                    android:background="@color/white" >
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_mainpage_tabteam_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="网络出问题咯(+﹏+)~\n点击刷新"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mainpage_view2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <HorizontalScrollView
+                    android:id="@+id/hsv_mainpage_tab2_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:scrollbars="none" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_sports"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="体坛要闻"
+                                android:textColor="@color/blue"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_isoccer"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="国际足球"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_csoccer"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="中国足球"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_nba"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="NBA"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_cba"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="CBA"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_tennis"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="网球"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab2_others"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="综合体育"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab2_cursor"
+                            android:layout_width="60dp"
+                            android:layout_height="2dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="15dp"
+                            android:background="@color/blue" />
+                    </RelativeLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/grey" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_mainpage_tab2_rss"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/hsv_mainpage_tab2_title"
+                    android:layout_gravity="center" >
+                </android.support.v4.view.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/ll_mainpage_tab2_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"
+                    android:visibility="invisible" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="网络出问题咯"
+                        android:textColor="@color/darkGrey"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_mainpage_view3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightGrey"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_mainpage_tab3_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@color/blue" >
+
+                    <ImageView
+                        android:id="@+id/iv_mainpage_tab3_userimage"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/ic_mainpage_tab3_defaultphoto" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_toRightOf="@id/iv_mainpage_tab3_userimage"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab3_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="登录/注册"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_mainpage_tab3_phone" />
+
+                            <TextView
+                                android:id="@+id/tv_mainpage_tab3_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="3dp"
+                                android:text="登录后会发现更多惊喜哦！"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                        
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab3_introduction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="暂无个人简介"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mainpage_tab3_rightarrow" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_drawable_white_grey"
+                        android:clickable="true" >
+
+                        <ImageView
+                            android:id="@+id/iv_mainpage_tab3_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/ic_mainpage_tab3_money" />
+
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab3_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:text="0元"
+                            android:textColor="@color/green"
+                            android:textSize="20sp"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_mainpage_tab3_money"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="我的余额"
+                            android:textSize="13sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_drawable_white_grey"
+                        android:clickable="true" >
+
+                        <ImageView
+                            android:id="@+id/iv_mainpage_tab3_redbag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/ic_mainpage_tab3_redbag" />
+
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab3_redbag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:text="0个"
+                            android:textColor="@color/red"
+                            android:textSize="20sp"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_mainpage_tab3_redbag"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="我的红包"
+                            android:textSize="13sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_drawable_white_grey"
+                        android:clickable="true" >
+
+                        <ImageView
+                            android:id="@+id/iv_mainpage_tab3_mark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/ic_mainpage_tab3_mark" />
+
+                        <TextView
+                            android:id="@+id/tv_mainpage_tab3_mark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:text="0分"
+                            android:textColor="@color/blue"
+                            android:textSize="20sp"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_mainpage_tab3_mark"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="我的积分"
+                            android:textSize="13sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/grey" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_mybill"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_mainpage_tab3_bill" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="球场订单"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_mymatchbill"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_mainpage_tab3_match" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="匹配订单"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_mycard"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_childcard_once" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="我的卡券"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_mymessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_mainpage_tab3_message" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="我的消息"
+                                android:textSize="16sp" />
+                            
+                            <TextView 
+                                android:id="@+id/tv_mainpage_tab3_newmessage"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="top"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/shape_newmessage"
+                                android:text="1"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_mycollect"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_heart" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="我的收藏"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <!-- <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_album" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="运动相册"
+                                android:textSize="16sp" />
+                        </LinearLayout> -->
+
+                        <!-- <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_mark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="积分商城"
+                                android:textSize="16sp" />
+                        </LinearLayout> -->
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_phone" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="服务中心"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_share"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_share" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="分享给朋友"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_feedback"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_mainpage_tab3_feedback" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="反馈给我们"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_mainpage_tab3_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/selector_drawable_mainpage_tab4_item"
+                            android:clickable="true"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:src="@drawable/ic_setting" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:text="设置"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="10dp" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/grey" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="-3dip"
+            android:layout_weight="1"
+            android:showDividers="none" >
+        </TabWidget>
+    </LinearLayout>
+
+</TabHost>
